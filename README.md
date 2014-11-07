@@ -17,3 +17,6 @@ Padrino Crud Example Application
   > $ touch lib/friend.rb test/friend/friend_test.rb
 
   *Add failing test for friend object*
+
+4. Create Database table
+  *Light weight database with sqlite, to clear database delete files in db*

@@ -1,3 +1,3 @@
-class Friend
+class Friend < Sequel::Model(:friends)
   
 end
