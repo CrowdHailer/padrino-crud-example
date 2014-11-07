@@ -1,0 +1,9 @@
+---
+:orm: sequel
+:test: minitest
+:mock: none
+:script: none
+:renderer: erb
+:stylesheet: none
+:namespace: Crud
+:migration_format: number
