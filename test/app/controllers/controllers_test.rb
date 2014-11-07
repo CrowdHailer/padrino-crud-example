@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 
 class ControllersTest < MiniTest::Test
-  def before
+  def setup
     app Crud::App do
       set :protect_from_csrf, false
     end
@@ -10,5 +10,11 @@ class ControllersTest < MiniTest::Test
   def test_home_page_returns_ok
     get '/'
     assert last_response.ok?, 'Homepage should respond ok'
+  end
+
+  def test_test_can_create_friend
+    post '/', name: 'Keith'
+    friend = Friend.last
+    assert_equal 'Keith', friend.name
   end
 end

@@ -20,3 +20,6 @@ Padrino Crud Example Application
 
 4. Create Database table
   *Light weight database with sqlite, to clear database delete files in db*
+
+5. Create method for a new friend
+  *Fix minitest uses setup method not before method*
