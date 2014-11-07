@@ -1,11 +1,14 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 
-describe "Controller" do
-  before do
-    get "/"
+class ControllersTest < MiniTest::Test
+  def before
+    app Crud::App do
+      set :protect_from_csrf, false
+    end
   end
 
-  it "should return hello world text" do
-    assert_equal "Hello World", last_response.body
+  def test_home_page_returns_ok
+    get '/'
+    assert last_response.ok?, 'Homepage should respond ok'
   end
 end
