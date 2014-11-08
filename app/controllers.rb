@@ -5,14 +5,12 @@ Crud::App.controllers  do
   end
   
   get :index, :map => '/' do
-    'Hello World'
+    @friends = Friend.all
+    render :index
   end
 
   get :new, :map => '/new' do
-    # routes can use any method to build a sting but is often best in a view template.
-    form_tag '/' do
-      text_field_tag(:name) + (submit_tag)
-    end
+    render :new
   end
 
   post :create, :map => '/' do
@@ -20,13 +18,11 @@ Crud::App.controllers  do
   end
 
   get :show, :map => '/:id' do
-    @friend.name
+    render :show
   end
 
   get :edit, :map => '/:id/edit' do
-    form_tag "/#{@friend.id}", method: 'put' do
-      text_field_tag(:name, value: @friend.name) + (submit_tag)
-    end
+    render :edit
   end
 
   put :update, :map => '/:id' do

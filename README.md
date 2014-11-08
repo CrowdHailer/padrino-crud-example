@@ -41,3 +41,6 @@ Padrino Crud Example Application
 
 11. Use padrino `before` to DRY code
   *padrino will call the before action before all specified routes several routes fetch a friend from the database so we can collect this action*
+
+12. Generate page content using view templates
+  *Use erb format, index in crud shows all entries as standard*

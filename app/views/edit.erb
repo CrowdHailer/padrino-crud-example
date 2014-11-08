@@ -1,0 +1,8 @@
+<% form_tag "/#{@friend.id}", method: 'put' do %>
+  <%= text_field_tag :name, value: @friend.name %>
+  <%= submit_tag %>
+<% end %>
+
+<%= link_to 'Back', "/#{@friend.id}" %>
+<br>
+<%= link_to 'Home', '/' %>

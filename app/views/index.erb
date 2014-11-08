@@ -1,0 +1,7 @@
+<ul>
+  <% @friends.each do |friend| %>
+    <li><%= link_to friend.name, "/#{friend.id}" %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'New friend', '/new' %>
