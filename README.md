@@ -37,4 +37,7 @@ Padrino Crud Example Application
   *Note reload from database for testing*
 
 10. Destroy action deletes a friend
-  *Page returned is blank*
+  *Now a fully working crud application*
+
+11. Use padrino `before` to DRY code
+  *padrino will call the before action before all specified routes several routes fetch a friend from the database so we can collect this action*

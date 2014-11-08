@@ -1,4 +1,8 @@
 Crud::App.controllers  do
+  before :show, :edit, :update, :destroy do
+    id = params['id']
+    @friend = Friend[id]
+  end
   
   get :index, :map => '/' do
     'Hello World'
@@ -16,23 +20,20 @@ Crud::App.controllers  do
   end
 
   get :show, :map => '/:id' do
-    Friend[params[:id]].name
+    @friend.name
   end
 
   get :edit, :map => '/:id/edit' do
-    friend = Friend[params[:id]]
-    form_tag "/#{friend.id}", method: 'put' do
-      text_field_tag(:name, value: friend.name) + (submit_tag)
+    form_tag "/#{@friend.id}", method: 'put' do
+      text_field_tag(:name, value: @friend.name) + (submit_tag)
     end
   end
 
   put :update, :map => '/:id' do
-    friend = Friend[params[:id]]
-    friend.update name: params['name']
+    @friend.update name: params['name']
   end
 
   delete :destroy, :map => '/:id' do
-    friend = Friend[params[:id]]
-    friend.destroy
+    @friend.destroy
   end
 end
