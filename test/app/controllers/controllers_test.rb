@@ -36,4 +36,14 @@ class ControllersTest < MiniTest::Test
     assert last_response.ok?, 'Edit page should be available'
     assert_includes last_response.body, 'value="Mike"'
   end
+
+  def test_update_action_changes_name
+    friend = Friend.create name: 'Susan'
+    put "/#{friend.id}", name: 'Sue'
+    assert last_response.ok?, 'Update action should be available'
+    # Update action changes database entry.
+    # We need to load latest version to ensure change has been made
+    friend.reload
+    assert_equal 'Sue', friend.name
+  end
 end

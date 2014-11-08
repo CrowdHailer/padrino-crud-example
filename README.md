@@ -32,3 +32,6 @@ Padrino Crud Example Application
 
 8. Edit page sends form to edit friend
   *Form action sends to update route*
+
+9. Update action changes a friends name
+  *Note reload from database for testing*

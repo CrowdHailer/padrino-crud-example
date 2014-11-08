@@ -25,4 +25,9 @@ Crud::App.controllers  do
       text_field_tag(:name, value: friend.name) + (submit_tag)
     end
   end
+
+  put :update, :map => '/:id' do
+    friend = Friend[params[:id]]
+    friend.update name: params['name']
+  end
 end
