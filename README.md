@@ -23,3 +23,6 @@ Padrino Crud Example Application
 
 5. Create method for a new friend
   *Fix minitest uses setup method not before method*
+
+6. New page and test that response is ok.
+  *Not using views*

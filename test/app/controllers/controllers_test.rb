@@ -12,6 +12,11 @@ class ControllersTest < MiniTest::Test
     assert last_response.ok?, 'Homepage should respond ok'
   end
 
+  def test_new_page_returns_ok
+    get '/new'
+    assert last_response.ok?, 'New friend page should be available'
+  end
+
   def test_test_can_create_friend
     post '/', name: 'Keith'
     friend = Friend.last
