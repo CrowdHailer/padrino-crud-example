@@ -26,3 +26,6 @@ Padrino Crud Example Application
 
 6. New page and test that response is ok.
   *Not using views*
+
+7. Create Page to view a friend
+  *Returns the fiends name as a string*

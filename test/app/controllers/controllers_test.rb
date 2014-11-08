@@ -22,4 +22,11 @@ class ControllersTest < MiniTest::Test
     friend = Friend.last
     assert_equal 'Keith', friend.name
   end
+
+  def test_can_view_a_friend
+    friend = Friend.create name: 'Neil'
+    get "/#{friend.id}"
+    assert last_response.ok?, 'Should be able to view a friend'
+    assert_includes last_response.body, 'Neil'
+  end
 end

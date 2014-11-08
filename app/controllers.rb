@@ -14,4 +14,8 @@ Crud::App.controllers  do
   post :create, :map => '/' do
     Friend.create name: params['name']
   end
+
+  get :show, :map => '/:id' do
+    Friend[params[:id]].name
+  end
 end
