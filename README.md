@@ -27,5 +27,8 @@ Padrino Crud Example Application
 6. New page and test that response is ok.
   *Not using views*
 
-7. Create Page to view a friend
+7. Create show Page to view a friend
   *Returns the fiends name as a string*
+
+8. Edit page sends form to edit friend
+  *Form action sends to update route*

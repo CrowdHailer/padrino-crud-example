@@ -18,4 +18,11 @@ Crud::App.controllers  do
   get :show, :map => '/:id' do
     Friend[params[:id]].name
   end
+
+  get :edit, :map => '/:id/edit' do
+    friend = Friend[params[:id]]
+    form_tag "/#{friend.id}", method: 'put' do
+      text_field_tag(:name, value: friend.name) + (submit_tag)
+    end
+  end
 end

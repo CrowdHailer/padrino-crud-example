@@ -29,4 +29,11 @@ class ControllersTest < MiniTest::Test
     assert last_response.ok?, 'Should be able to view a friend'
     assert_includes last_response.body, 'Neil'
   end
+
+  def test_edit_page_shows_current_name
+    friend = Friend.create name: 'Mike'
+    get "/#{friend.id}/edit"
+    assert last_response.ok?, 'Edit page should be available'
+    assert_includes last_response.body, 'value="Mike"'
+  end
 end
