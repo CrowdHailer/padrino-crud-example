@@ -44,3 +44,6 @@ Padrino Crud Example Application
 
 12. Generate page content using view templates
   *Use erb format, index in crud shows all entries as standard*
+
+13. Redirect within controller
+  *Use redirect when appropriate, also redirect from unfound friend entries*

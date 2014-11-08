@@ -5,6 +5,8 @@ class ControllersTest < MiniTest::Test
     app Crud::App do
       set :protect_from_csrf, false
     end
+    # Keep test database Empty
+    Friend.dataset.destroy
   end
 
   def test_home_page_returns_ok
@@ -40,6 +42,7 @@ class ControllersTest < MiniTest::Test
   def test_update_action_changes_name
     friend = Friend.create name: 'Susan'
     put "/#{friend.id}", name: 'Sue'
+    follow_redirect!
     assert last_response.ok?, 'Update action should be available'
     # Update action changes database entry.
     # We need to load latest version to ensure change has been made
@@ -50,7 +53,13 @@ class ControllersTest < MiniTest::Test
   def test_destroy_action_removes_friend
     friend = Friend.create name: 'Stan'
     delete "/#{friend.id}"
+    follow_redirect!
     assert last_response.ok?, 'delete action should be available'
     assert_nil Friend[friend.id]
+  end
+
+  def test_redirects_if_friend_not_found
+    get '/2'
+    assert last_response.redirect?, 'Should redirect from non found friend page'
   end
 end
