@@ -35,3 +35,6 @@ Padrino Crud Example Application
 
 9. Update action changes a friends name
   *Note reload from database for testing*
+
+10. Destroy action deletes a friend
+  *Page returned is blank*

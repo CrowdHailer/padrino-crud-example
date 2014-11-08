@@ -46,4 +46,11 @@ class ControllersTest < MiniTest::Test
     friend.reload
     assert_equal 'Sue', friend.name
   end
+
+  def test_destroy_action_removes_friend
+    friend = Friend.create name: 'Stan'
+    delete "/#{friend.id}"
+    assert last_response.ok?, 'delete action should be available'
+    assert_nil Friend[friend.id]
+  end
 end

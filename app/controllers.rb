@@ -30,4 +30,9 @@ Crud::App.controllers  do
     friend = Friend[params[:id]]
     friend.update name: params['name']
   end
+
+  delete :destroy, :map => '/:id' do
+    friend = Friend[params[:id]]
+    friend.destroy
+  end
 end
